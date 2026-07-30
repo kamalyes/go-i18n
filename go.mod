@@ -3,9 +3,9 @@ module github.com/kamalyes/go-i18n
 go 1.25.0
 
 require (
-	github.com/kamalyes/go-config v0.21.7
-	github.com/kamalyes/go-logger v0.5.5-0.20260728161616-cc643ae0fae7
-	github.com/kamalyes/go-toolbox v0.15.6-0.20260729085951-81590c775d02
+	github.com/kamalyes/go-config v0.21.8
+	github.com/kamalyes/go-logger v0.5.5
+	github.com/kamalyes/go-toolbox v0.15.6
 	github.com/stretchr/testify v1.11.1
 )
 
@@ -18,7 +18,7 @@ require (
 	github.com/davecgh/go-spew v1.1.2-0.20180830191138-d8f796af33cc // indirect
 	github.com/goccy/go-json v0.10.2 // indirect
 	github.com/json-iterator/go v1.1.12 // indirect
-	github.com/kamalyes/go-argus v0.3.0 // indirect
+	github.com/kamalyes/go-argus v0.3.1 // indirect
 	github.com/klauspost/cpuid/v2 v2.2.7 // indirect
 	github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd // indirect
 	github.com/modern-go/reflect2 v1.0.2 // indirect
