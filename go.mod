@@ -4,7 +4,7 @@ go 1.25.0
 
 require (
 	github.com/kamalyes/go-config v0.21.17
-	github.com/kamalyes/go-logger v0.6.1
+	github.com/kamalyes/go-logger v0.6.2
 	github.com/kamalyes/go-toolbox v0.16.3
 	github.com/stretchr/testify v1.11.1
 )
