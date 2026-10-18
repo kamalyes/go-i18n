@@ -15,13 +15,12 @@ import (
 	"context"
 	"testing"
 
-	gci18n "github.com/kamalyes/go-config/pkg/i18n"
 	"github.com/stretchr/testify/assert"
 )
 
 func TestT(t *testing.T) {
 	// 创建一个带有 i18n context 的上下文
-	config := &gci18n.I18N{Enabled: true, DefaultLanguage: "en", SupportedLanguages: []string{"en"}, MessageLoader: NewMapLoader(map[string]map[string]string{"en": {"hello": "Hello", "greeting": "Hello %s"}}), EnableFallback: true}
+	config := &Config{Enabled: true, DefaultLanguage: "en", SupportedLanguages: []string{"en"}, MessageLoader: NewMapLoader(map[string]map[string]string{"en": {"hello": "Hello", "greeting": "Hello %s"}}), EnableFallback: true}
 	manager, _ := NewManager(config)
 	ctx := NewContext(context.Background(), "en", manager)
 
@@ -47,7 +46,7 @@ func TestT(t *testing.T) {
 
 func TestTWithMap(t *testing.T) {
 	// 创建一个带有 i18n context 的上下文
-	config := &gci18n.I18N{Enabled: true, DefaultLanguage: "en", SupportedLanguages: []string{"en"}, MessageLoader: NewMapLoader(map[string]map[string]string{"en": {"greeting": "Hello {name}"}}), EnableFallback: true}
+	config := &Config{Enabled: true, DefaultLanguage: "en", SupportedLanguages: []string{"en"}, MessageLoader: NewMapLoader(map[string]map[string]string{"en": {"greeting": "Hello {name}"}}), EnableFallback: true}
 	manager, _ := NewManager(config)
 	ctx := NewContext(context.Background(), "en", manager)
 
@@ -73,7 +72,7 @@ func TestTWithMap(t *testing.T) {
 
 func TestGetMsgWithMap(t *testing.T) {
 	// 创建一个带有 i18n context 的上下文
-	config := &gci18n.I18N{Enabled: true, DefaultLanguage: "en", SupportedLanguages: []string{"en"}, MessageLoader: NewMapLoader(map[string]map[string]string{"en": {"greeting": "Hello {name}"}}), EnableFallback: true}
+	config := &Config{Enabled: true, DefaultLanguage: "en", SupportedLanguages: []string{"en"}, MessageLoader: NewMapLoader(map[string]map[string]string{"en": {"greeting": "Hello {name}"}}), EnableFallback: true}
 	manager, _ := NewManager(config)
 	ctx := NewContext(context.Background(), "en", manager)
 
@@ -99,7 +98,7 @@ func TestGetMsgWithMap(t *testing.T) {
 
 func TestSetLanguage(t *testing.T) {
 	// 创建一个带有 i18n context 的上下文
-	config := &gci18n.I18N{Enabled: true, DefaultLanguage: "en", SupportedLanguages: []string{"en", "zh"}, MessageLoader: NewMapLoader(map[string]map[string]string{"en": {"hello": "Hello"}, "zh": {"hello": "你好"}}), EnableFallback: true}
+	config := &Config{Enabled: true, DefaultLanguage: "en", SupportedLanguages: []string{"en", "zh"}, MessageLoader: NewMapLoader(map[string]map[string]string{"en": {"hello": "Hello"}, "zh": {"hello": "你好"}}), EnableFallback: true}
 	manager, _ := NewManager(config)
 	ctx := NewContext(context.Background(), "en", manager)
 
@@ -116,7 +115,7 @@ func TestSetLanguage(t *testing.T) {
 
 func TestGetLanguage(t *testing.T) {
 	// 创建一个带有 i18n context 的上下文
-	config := &gci18n.I18N{Enabled: true, DefaultLanguage: "en", SupportedLanguages: []string{"en", "zh"}, MessageLoader: NewMapLoader(map[string]map[string]string{"en": {"hello": "Hello"}, "zh": {"hello": "你好"}}), EnableFallback: true}
+	config := &Config{Enabled: true, DefaultLanguage: "en", SupportedLanguages: []string{"en", "zh"}, MessageLoader: NewMapLoader(map[string]map[string]string{"en": {"hello": "Hello"}, "zh": {"hello": "你好"}}), EnableFallback: true}
 	manager, _ := NewManager(config)
 	ctx := NewContext(context.Background(), "en", manager)
 
