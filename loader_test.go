@@ -14,7 +14,6 @@ package i18n
 import (
 	"testing"
 
-	goi18n "github.com/kamalyes/go-config/pkg/i18n"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -55,7 +54,7 @@ func TestAsMessageLoader(t *testing.T) {
 			msgLoader := AsMessageLoader(tt.loader)
 			if tt.expected {
 				assert.NotNil(t, msgLoader)
-				assert.Implements(t, (*goi18n.MessageLoader)(nil), msgLoader)
+				assert.Implements(t, (*MessageLoader)(nil), msgLoader)
 			} else {
 				assert.Nil(t, msgLoader)
 			}
