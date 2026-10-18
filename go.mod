@@ -14,10 +14,3 @@ require (
 	github.com/rogpeppe/go-internal v1.15.0 // indirect
 	gopkg.in/check.v1 v1.0.0-20201130134442-10cb98267c6c // indirect
 )
-
-// 本地开发替换
-// replace github.com/kamalyes/go-toolbox => ../go-toolbox
-
-// replace github.com/kamalyes/go-logger => ../go-logger
-
-// replace github.com/kamalyes/go-config => ../go-config

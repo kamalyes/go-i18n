@@ -56,6 +56,25 @@ jobs:
           fi
           echo "bump-level=${bump_level}" >> "$GITHUB_OUTPUT"
 
+      # 升级后先编译，不过就让 job 失败，绝不提交也绝不打 tag
+      #
+      # 原先的流程是 go get -> tidy -> commit -> push -> tag，中间没有任何编译校验，
+      # 上游一次破坏性变更就会被自动提交并打上 tag 发布出去
+      # go mod tidy 只解析 import、不做类型检查，拦不住签名变更这类问题
+      #
+      # [EN] Build before committing: the previous flow was get -> tidy -> commit ->
+      # push -> tag with no compile check, so one breaking upstream change would be
+      # auto-committed and tagged. go mod tidy only resolves imports and does not
+      # type-check, so it cannot catch a changed signature
+      - name: Verify build after bump
+        shell: bash
+        run: |
+          go build ./...
+          for sub in $(find . -mindepth 2 -name go.mod -not -path './.git/*' | sed 's|/go.mod$||'); do
+            echo "Building nested module ${sub}"
+            (cd "${sub}" && go build ./...)
+          done
+
       - name: Commit and push
         id: commit
         shell: bash
